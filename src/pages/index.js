@@ -1,29 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Layout from 'components/layout';
+import { graphql } from 'gatsby';
 import Box from 'components/box';
 import Title from 'components/title';
 import Gallery from 'components/gallery';
 import IOExample from 'components/io-example';
-import Modal from 'containers/modal';
-import { graphql } from 'gatsby';
+// import landingImage from "../../images/landing.jpg"
 
 const Index = ({ data }) => (
   <Layout>
-    <Box>
-      <Title as="h2" size="large">
-        {data.homeJson.content.childMarkdownRemark.rawMarkdownBody}
-      </Title>
-      <Modal>
-        <video
-          src="https://i.imgur.com/gzFqNSW.mp4"
-          playsInline
-          loop
-          autoPlay
-          muted
-        />
-      </Modal>
-    </Box>
+    {console.log(data, 'data')}
+    {/*<Box>*/}
+    {/*  <Title as="h2" size="large">*/}
+    {/*    {data.homeJson.content.childMarkdownRemark.rawMarkdownBody}*/}
+    {/*  </Title>*/}
+    {/*    */}
+    {/*</Box>*/}
+    <div
+      style={{
+        backgroundImage: `url(${data.homeJson.backgroundImage})`,
+        position: "absolute",
+        top: 0,
+        zIndex: -5,
+        height: "100vh",
+        width: "100%",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center center',
+        opacity: 0.35,
+      }}
+    />
     <Gallery items={data.homeJson.gallery} />
     <div style={{ height: '50vh' }} />
     <IOExample />
@@ -46,6 +52,7 @@ export const query = graphql`
           rawMarkdownBody
         }
       }
+      backgroundImage
       gallery {
         title
         copy
