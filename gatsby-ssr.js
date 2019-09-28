@@ -2,7 +2,6 @@ import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { ServerStyleSheet } from 'styled-components';
 import AppProvider from 'store/provider';
-import wrapPageElementWithTransition from 'helpers/wrapPageElement';
 
 export const replaceRenderer = ({
   bodyComponent,
@@ -19,6 +18,3 @@ export const replaceRenderer = ({
   const styleElement = sheet.getStyleElement();
   setHeadComponents(styleElement);
 };
-
-// Page Transitions
-export const wrapPageElement = wrapPageElementWithTransition;
