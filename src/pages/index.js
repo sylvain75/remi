@@ -6,6 +6,7 @@ import Box from 'components/box';
 import Title from 'components/title';
 import Gallery from 'components/gallery';
 import IOExample from 'components/io-example';
+import Img from 'gatsby-image';
 // import landingImage from "../../images/landing.jpg"
 
 const Index = ({ data }) => (
@@ -17,19 +18,21 @@ const Index = ({ data }) => (
     {/*  </Title>*/}
     {/*    */}
     {/*</Box>*/}
-    <div
-      style={{
-        backgroundImage: `url(${data.homeJson.backgroundImage})`,
-        position: "absolute",
-        top: 0,
-        zIndex: -5,
-        height: "100vh",
-        width: "100%",
-        backgroundSize: 'cover',
-        backgroundPosition: 'center center',
-        opacity: 0.35,
-      }}
-    />
+    {/*<div*/}
+    {/*  style={{*/}
+    {/*    backgroundImage: `url(${data.homeJson.background.image.childImageSharp.fluid})`,*/}
+    {/*    position: "absolute",*/}
+    {/*    top: 0,*/}
+    {/*    zIndex: -5,*/}
+    {/*    height: "100vh",*/}
+    {/*    width: "100%",*/}
+    {/*    backgroundSize: 'cover',*/}
+    {/*    backgroundPosition: 'center center',*/}
+    {/*    opacity: 0.35,*/}
+    {/*  }}*/}
+    {/*/>*/}
+    <Img fluid={data.homeJson.background.image.childImageSharp.fluid} alt={data.homeJson.background.image.title} />
+
     <Gallery items={data.homeJson.gallery} />
     <div style={{ height: '50vh' }} />
     <IOExample />
@@ -52,7 +55,15 @@ export const query = graphql`
           rawMarkdownBody
         }
       }
-      backgroundImage
+      background {
+        image {
+          childImageSharp {
+            fluid(maxHeight: 500, quality: 90) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+      }
       gallery {
         title
         copy
