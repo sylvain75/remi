@@ -8,7 +8,7 @@ import Nav from 'components/header/nav';
 export const Header = ({ title }) => (
   <div>
     <Container>
-      <Link to="/">
+      <Link activeClass="active" to="homeSection" spy={true} smooth={true} duration={500}>
         <Title as="h1">{title}</Title>
       </Link>
 

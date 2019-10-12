@@ -1,16 +1,22 @@
 import React from 'react';
+import Img from 'gatsby-image';
 import PropTypes from 'prop-types';
+
 import Layout from 'components/layout';
 import { graphql } from 'gatsby';
 import Box from 'components/box';
 import Gallery from 'components/gallery';
 import IOExample from 'components/io-example';
-import Img from 'gatsby-image';
 
 const styles = {
-  section1: {
-    height: '100vh',
+  homeSection: {
+    height: '76vh',
     width: '100%',
+  },
+  gallerySection: {
+    height: '100vh',
+    paddingTop: 30,
+    backgroundColor: 'aqua',
   },
   bkImage: {
     position: 'absolute',
@@ -26,12 +32,15 @@ const styles = {
 
 const Index = ({ data }) => (
   <Layout>
-    <section style={styles.section1}>
+    <section className="homeSection" style={styles.homeSection}>
       <Img fluid={data.homeJson.background.image.childImageSharp.fluid} alt={"hello"} style={styles.bkImage} />
       <Box>{data.homeJson.content.childMarkdownRemark.rawMarkdownBody}</Box>
     </section>
-    <section>
+    <section className="gallerySection" style={styles.gallerySection}>
       <Gallery items={data.homeJson.gallery} />
+      <Box>
+        Content text We Do
+      </Box>
     </section>
 
     <div style={{ height: '50vh' }} />

@@ -7,19 +7,19 @@
   },
   "gallery": [
     {
-      "title": "React Context",
-      "copy": "For global styles.",
-      "image": "../images/gallery/react-context.jpg"
+      "title": "Elegant",
+      "copy": "For better style",
+      "image": "../images/gallery/living.jpg"
     },
     {
-      "title": "Page Transitions",
-      "copy": "Component-based for easy usage.",
-      "image": "../images/gallery/page-transitions.jpg"
+      "title": "Beautiful",
+      "copy": "I bring my dog to work",
+      "image": "../images/gallery/paddie.jpg"
     },
     {
-      "title": "Intersection Observer",
-      "copy": "Including a polyfill for Safari.",
-      "image": "../images/gallery/intersection-observer.jpg"
+      "title": "Decorative",
+      "copy": "The best items",
+      "image": "../images/gallery/living2.jpg"
     }
   ]
 }
