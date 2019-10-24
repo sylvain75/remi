@@ -1,1 +1,1 @@
-Affordabled design for everyone
+Design for Everyone

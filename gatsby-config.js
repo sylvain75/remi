@@ -21,6 +21,7 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-webpack-size`,
+    `gatsby-plugin-postcss`,
     {
       resolve: `gatsby-plugin-react-svg`,
       options: {
@@ -29,5 +30,15 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `open sans\:300,400,400i,500,600,700,800,70`,
+          // `source sans pro\:300,400,400i,700` // you can also specify font weights and styles
+        ],
+        display: 'swap'
+      }
+    }
   ],
 };
